@@ -1,0 +1,29 @@
+/* align - center 
+view high scores: 
+    - light purple
+    - left top corner
+timer:
+    - black, small
+    - right top corner
+Questions:
+    - bold?
+multiple choice buttons:
+    - starts: 
+        - dark purple background
+        - white letter
+    - hover: 
+        - light purple background
+        - white letter
+after click:
+    - line appears
+    - correct or wrong: light gray 
+finished:
+    - All done: bold
+    - your final score & enter name: regular
+    - submit:
+        - dark purple background w/ white letter
+        - hover: light purple background w/ white letter
+High scores:
+    - name boxes: dark/light purple box
+    - go back/ clear score: same as other buttons
+*/
