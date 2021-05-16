@@ -14,8 +14,11 @@
         <p>View High Scores</p>
         <h3 id="timeleft">Time Left: 75</h3>
     </div>
-    <div id="Qcontent" class="hide">
+    <div id="intro" class="hide">
+        <h2>This quiz will test your knowledge</h2>
         <button id="start">Start Quiz</button>
+    </div>
+    <div id="Qcontent" class="hide" hidden="true">
         <div id="quiz"></div>
         <div id="choices">
             <button id="choice1" onclick="answerCheck(this.id)">1</button>
@@ -23,17 +26,17 @@
             <button id="choice3" onclick="answerCheck(this.id)">3</button>
             <button id="choice4" onclick="answerCheck(this.id)">4</button>    
         </div>
-        <div id="results" class="hide">
-            <p id="score"></p>
-            <input id="initials" type="text">
-            <button id="submit">Submit</button>
-        </div>
-        <div id="highscore" class="hide">
-            <button id="goback">Go Back</button>
-            <button id="clearscore">Clear High Scores</button>
-        </div>
-    
     </div>
+    <div id="results" class="hide" hidden="true">
+        <p id="score"></p>
+        <input id="initials" type="text">
+        <button id="submit">Submit</button>
+    </div>
+    <div id="highscore" class="hide" hidden="true">
+        <button id="goback">Go Back</button>
+        <button id="clearscore">Clear High Scores</button>
+    </div>
+    
     <script src="./assets/javascript/script.js"></script>
 
     <!-- button: 
