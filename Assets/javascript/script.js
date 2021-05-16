@@ -2,6 +2,14 @@
 var score = 0;
 var questionsArray = [
     { 
+        question: "The link element must go inside the ___ section of an HTML document or page.",
+        choice1: "Footer", 
+        choice2: "Paragraph", 
+        choice3: "Head", 
+        choice4: "Body",
+        correctAnswer: "choice3"
+    },
+    { 
         question: "External stylesheets are stored in what type of files?",
         choice1: "CSS", 
         choice2: "PHP", 
@@ -24,14 +32,6 @@ var questionsArray = [
         choice3: "Conditional statement", 
         choice4: "Break statement",
         correctAnswer: "choice4"
-    },
-    { 
-        question: "The link element must go inside the ___ section of an HTML document or page.",
-        choice1: "Footer", 
-        choice2: "Paragraph", 
-        choice3: "Head", 
-        choice4: "Body",
-        correctAnswer: "choice3"
     },
     { 
         question: "What is a JavaScript element that represents either TRUE or FALSE values?",
@@ -90,26 +90,27 @@ var choiceBtn1 = document.getElementById("choice1")
 var choiceBtn2 = document.getElementById("choice2")
 var choiceBtn3 = document.getElementById("choice3")
 var choiceBtn4 = document.getElementById("choice4")
-var currentQuestion = questionsArray[questionIndex]
 
 function startQuestions() {
     console.log("quiz starts")
-    // if (questionIndex === questionsArray.length) {
-    //     console.log ("quiz over")
-    //     // quizOver();
-    // }
+    if (questionIndex === questionsArray.length) {
+        console.log ("quiz over")
+        // quizOver();
+    }
+    var currentQuestion = questionsArray[questionIndex]
     codeQuestions.innerHTML = currentQuestion.question;
     choiceBtn1.innerHTML = currentQuestion.choice1;
     choiceBtn2.innerHTML = currentQuestion.choice2;
     choiceBtn3.innerHTML = currentQuestion.choice3;
     choiceBtn4.innerHTML = currentQuestion.choice4;
-    console.log("buttons") 
 }
-
-function answerCheck(answer) {
-    console.log(answer)
-    if (answer === currentQuestion.correctAnswer) {
-        console.log("correct")
+function answerCheck(userAnswer) {
+    console.log(userAnswer)
+    console.log(questionsArray[questionIndex].correctAnswer)
+    if (userAnswer === questionsArray[questionIndex].correctAnswer) {
+        questionIndex++;
+        startQuestions();
+        console.log("correctAnswer")
     }
     else {
         console.log("wrong")
