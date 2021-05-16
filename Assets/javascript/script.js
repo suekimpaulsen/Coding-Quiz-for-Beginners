@@ -70,7 +70,7 @@ function startTimer() {
         else {
             clearInterval(timeInterval);
             console.log ("the count reached 0");
-            // quizOver();
+            quizOver();
         }
         // if (timeLeft === 0) {
         //     console.log("the count reached 0");
@@ -86,6 +86,7 @@ function startTimer() {
 
 var codeQuestions = document.getElementById("quiz");
 var questionIndex = 0;
+var score = 0;
 var choiceBtn1 = document.getElementById("choice1")
 var choiceBtn2 = document.getElementById("choice2")
 var choiceBtn3 = document.getElementById("choice3")
@@ -94,28 +95,35 @@ var choiceBtn4 = document.getElementById("choice4")
 function startQuestions() {
     console.log("quiz starts")
     if (questionIndex === questionsArray.length) {
-        console.log ("quiz over")
-        // quizOver();
+        console.log ("quiz over");
+        quizOver();
     }
-    var currentQuestion = questionsArray[questionIndex]
-    codeQuestions.innerHTML = currentQuestion.question;
-    choiceBtn1.innerHTML = currentQuestion.choice1;
-    choiceBtn2.innerHTML = currentQuestion.choice2;
-    choiceBtn3.innerHTML = currentQuestion.choice3;
-    choiceBtn4.innerHTML = currentQuestion.choice4;
+    else {
+        var currentQuestion = questionsArray[questionIndex];
+        codeQuestions.innerHTML = currentQuestion.question;
+        choiceBtn1.innerHTML = currentQuestion.choice1;
+        choiceBtn2.innerHTML = currentQuestion.choice2;
+        choiceBtn3.innerHTML = currentQuestion.choice3;
+        choiceBtn4.innerHTML = currentQuestion.choice4;
+    }
 }
 function answerCheck(userAnswer) {
     console.log(userAnswer)
     console.log(questionsArray[questionIndex].correctAnswer)
     if (userAnswer === questionsArray[questionIndex].correctAnswer) {
-        questionIndex++;
-        startQuestions();
-        console.log("correctAnswer")
+        score++;
+        console.log(questionIndex);
     }
     else {
-        console.log("wrong")
+        console.log(questionIndex);
     }
+    questionIndex++;
+    startQuestions();
 }
+function quizOver() {
+    console.log("END")
+}
+
 
 
 
