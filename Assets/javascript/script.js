@@ -60,8 +60,10 @@ function startQuiz() {
     // contentElement.append(questionElement);
 }
 var timeLeftEl = document.getElementById("timeleft")
+var timeInterval;
 function startTimer() {
-    var timeLeft = 10;
+    var timeLeft = 15;
+
     var timeInterval = setInterval(function() {
         if (timeLeft !== 0) {
             timeLeft--;
@@ -83,6 +85,16 @@ function startTimer() {
         // }
     }, 1000);
 }
+// TIMER
+// var timer = document.getElementById('countdown');
+// function countdown() {
+//     var timeLeft = 75;
+//     var timeInterval = setInterval(function) {
+            //TIMER CODE
+            // if Finishes the Quiz. timer stops
+            // if timer reaches 0, finishes the quiz
+//     }, 1000);
+// }
 
 var codeQuestions = document.getElementById("quiz");
 var questionIndex = 0;
@@ -121,15 +133,13 @@ function answerCheck(userAnswer) {
     startQuestions();
 }
 function quizOver() {
-    console.log("END")
+    // clearInterval(timeInterval);
+    // console.log(timeInterval)
+    console.log(score)
 }
 
 
 
-
-// function startQuestions() {
-//     console.log("questions")
-// }
 
 
 //SCORE
@@ -156,14 +166,4 @@ function quizOver() {
 // - clear high scores 
 
 
-// TIMER
-// var timer = document.getElementById('countdown');
-// function countdown() {
-//     var timeLeft = 75;
-//     var timeInterval = setInterval(function) {
-            //TIMER CODE
-            // if Finishes the Quiz. timer stops
-            // if timer reaches 0, finishes the quiz
-//     }, 1000);
-// }
 
