@@ -10,29 +10,30 @@
 </header>
 
 <body>
-    <div id="toprow">
-        <button id="ViewScore">View High Scores</button>
+    <div class="toprow">
+        <p>View High Scores</p>
+        <h3 id="timeleft">Time Left: 75</h3>
     </div>
-    <div id="main">
-        <p id="timeleft"></p>
-        <button id="start">Start</button>
-        <div id="questions">
-            <p>Questions Placeholder</p>
+    <div id="q-content" class="hide">
+        <button id="start">Start Quiz</button>
+        <div id="questions"></div>
+        <div id="choices">
+            <button id="choice1">1</button>
+            <button id="choice2">2</button>
+            <button id="choice3">3</button>
+            <button id="choice4">4</button>    
         </div>
-        <button id="choice1">1</button>
-        <button id="choice2">2</button>
-        <button id="choice3">3</button>
-        <button id="choice4">4</button>
+        <div id="results" class="hide">
+            <p id="score"></p>
+            <input id="initials" type="text">
+            <button id="submit">Submit</button>
+        </div>
+        <div id="highscore" class="hide">
+            <button id="goback">Go Back</button>
+            <button id="clearscore">Clear High Scores</button>
+        </div>
+    
     </div>
-    <!-- <div id="results">
-        <p id="score"></p>
-        <input id="initials" type="text">
-        <button id="submit">Submit</button>
-    </div>
-    <div id="highscore">
-        <button id="goback">Go Back</button>
-        <button id="clearscore">Clear High Scores</button>
-    </div> -->
     <script src="./assets/javascript/script.js"></script>
 
     <!-- button: 
