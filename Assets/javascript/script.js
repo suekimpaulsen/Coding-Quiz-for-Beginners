@@ -7,7 +7,7 @@ var questionsArray = [
         choice2: "PHP", 
         choice3: "HTML", 
         choice4: "XML",
-        correctAnswer: "1"
+        correctAnswer: "choice1"
     },
     { 
         question: "What tag is used to define a list item?",
@@ -15,7 +15,7 @@ var questionsArray = [
         choice2: "list", 
         choice3: "l", 
         choice4: "list item",
-        correctAnswer: "1"
+        correctAnswer: "choice1"
     },
     { 
         question: "What is the name of the statement that is used to exit or end loop?",
@@ -23,7 +23,7 @@ var questionsArray = [
         choice2: "Close statement", 
         choice3: "Conditional statement", 
         choice4: "Break statement",
-        correctAnswer: "4"
+        correctAnswer: "choice4"
     },
     { 
         question: "The link element must go inside the ___ section of an HTML document or page.",
@@ -31,7 +31,7 @@ var questionsArray = [
         choice2: "Paragraph", 
         choice3: "Head", 
         choice4: "Body",
-        correctAnswer: "3"
+        correctAnswer: "choice3"
     },
     { 
         question: "What is a JavaScript element that represents either TRUE or FALSE values?",
@@ -39,12 +39,9 @@ var questionsArray = [
         choice2: "Boolean", 
         choice3: "RegExp", 
         choice4: "Condition",
-        correctAnswer: "2"
+        correctAnswer: "choice2"
     }
 ];
-
-// function answerCheck()
-
 
 // START QUIZ
 // var contentElement = document.getElementById('Qcontent');
@@ -93,7 +90,7 @@ var choiceBtn1 = document.getElementById("choice1")
 var choiceBtn2 = document.getElementById("choice2")
 var choiceBtn3 = document.getElementById("choice3")
 var choiceBtn4 = document.getElementById("choice4")
-
+var currentQuestion = questionsArray[questionIndex]
 
 function startQuestions() {
     console.log("quiz starts")
@@ -101,7 +98,6 @@ function startQuestions() {
     //     console.log ("quiz over")
     //     // quizOver();
     // }
-    var currentQuestion = questionsArray[questionIndex]
     codeQuestions.innerHTML = currentQuestion.question;
     choiceBtn1.innerHTML = currentQuestion.choice1;
     choiceBtn2.innerHTML = currentQuestion.choice2;
@@ -109,6 +105,17 @@ function startQuestions() {
     choiceBtn4.innerHTML = currentQuestion.choice4;
     console.log("buttons") 
 }
+
+function answerCheck(answer) {
+    console.log(answer)
+    if (answer === currentQuestion.correctAnswer) {
+        console.log("correct")
+    }
+    else {
+        console.log("wrong")
+    }
+}
+
 
 
 // function startQuestions() {
