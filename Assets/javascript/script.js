@@ -89,10 +89,10 @@ function startTimer() {
 
 var codeQuestions = document.getElementById("quiz");
 var questionIndex = 0;
-var choiceBtn1 = document.getElementById("1")
-var choiceBtn2 = document.getElementById("2")
-var choiceBtn3 = document.getElementById("3")
-var choiceBtn4 = document.getElementById("4")
+var choiceBtn1 = document.getElementById("choice1")
+var choiceBtn2 = document.getElementById("choice2")
+var choiceBtn3 = document.getElementById("choice3")
+var choiceBtn4 = document.getElementById("choice4")
 
 
 function startQuestions() {
