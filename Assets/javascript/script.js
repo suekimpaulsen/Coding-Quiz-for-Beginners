@@ -1,5 +1,4 @@
 // timer, start, questions, end, name, score
-var score = 0;
 var questionsArray = [
     { 
         question: "The link element must go inside the ___ section of an HTML document or page.",
@@ -60,6 +59,25 @@ function startQuiz() {
     // contentElement.append(questionElement);
 }
 var timeLeftEl = document.getElementById("timeleft")
+// setAttributes, removeAttributes by calling class
+
+// var timeLeft = 15;
+// var timeInterval = setInterval(timer, 1000);
+// function startTimer() {
+//     timer;
+// }
+// function timer () {
+//     if (timeLeft !== 0) {
+//         timeLeft--;
+//         timeLeftEl.innerHTML = 'Time Left: ' + timeLeft;
+//     }
+//     else {
+//         clearInterval(timeInterval);
+//         console.log ("the count reached 0");
+//         quizOver();
+//     }
+// }
+
 var timeInterval;
 function startTimer() {
     var timeLeft = 15;
@@ -74,15 +92,6 @@ function startTimer() {
             console.log ("the count reached 0");
             quizOver();
         }
-        // if (timeLeft === 0) {
-        //     console.log("the count reached 0");
-        //     clearInterval(timeInterval);
-        // }
-        // else {
-        //     console.log(timeLeft)
-        //     timeLeft--;
-        //     timeLeftEl.innerHTML = 'Time Left: ' + timeLeft;
-        // }
     }, 1000);
 }
 // TIMER
@@ -98,7 +107,6 @@ function startTimer() {
 
 var codeQuestions = document.getElementById("quiz");
 var questionIndex = 0;
-var score = 0;
 var choiceBtn1 = document.getElementById("choice1")
 var choiceBtn2 = document.getElementById("choice2")
 var choiceBtn3 = document.getElementById("choice3")
@@ -123,10 +131,10 @@ function answerCheck(userAnswer) {
     console.log(userAnswer)
     console.log(questionsArray[questionIndex].correctAnswer)
     if (userAnswer === questionsArray[questionIndex].correctAnswer) {
-        score++;
         console.log(questionIndex);
     }
     else {
+        timeInterval -= 10;
         console.log(questionIndex);
     }
     questionIndex++;
@@ -135,18 +143,20 @@ function answerCheck(userAnswer) {
 function quizOver() {
     // clearInterval(timeInterval);
     // console.log(timeInterval)
-    console.log(score)
+    console.log(timeLeft)
 }
 
-
-
-
-
-//SCORE
-// var score = 0;
-// for (var i = 0; i < questionsArray.length; i++) {
-//     var answer = 
+// var submitScore = document.getElementById("submit");
+// function ()
+// LOCAL STORAGE
+// var userInitial = document.querySelector("#initials").value;
+// if (userInitial === '') {
+//     displayMessage('eror', 'please enter your initials');
 // }
+// localStorage.setItem('initial', userInitial);
+// localStorage.setItem('score', score);
+
+
 
 // END QUIZ
 
