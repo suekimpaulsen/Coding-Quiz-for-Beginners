@@ -1,80 +1,56 @@
 // timer, start, questions, end, name, score
-var choiceBtn1 = document.getElementById("choice1")
-var choiceBtn2 = document.getElementById("choice2")
-var choiceBtn3 = document.getElementById("choice3")
-var choiceBtn4 = document.getElementById("choice4")
-
-var questionIndex = 0;
 var score = 0;
-var codeQuestions = [
+var questionsArray = [
+    { 
+        question: "External stylesheets are stored in what type of files?",
+        choice1: "CSS", 
+        choice2: "PHP", 
+        choice3: "HTML", 
+        choice4: "XML",
+        correctAnswer: "1"
+    },
     { 
         question: "What tag is used to define a list item?",
-        answers: {
-            choice1: "<li>", 
-            choice2: "<list>", 
-            choice3: "<l>", 
-            choice4: "<list item>",
-            correctAnswer: "1"
-        },
+        choice1: "li", 
+        choice2: "list", 
+        choice3: "l", 
+        choice4: "list item",
+        correctAnswer: "1"
     },
     { 
         question: "What is the name of the statement that is used to exit or end loop?",
-        answers: {
-            choice1: "Falter statement", 
-            choice2: "Close statement", 
-            choice3: "Conditional statement", 
-            choice4: "Break statement",
-            correctAnswer: "4"
-        },
+        choice1: "Falter statement", 
+        choice2: "Close statement", 
+        choice3: "Conditional statement", 
+        choice4: "Break statement",
+        correctAnswer: "4"
     },
     { 
         question: "The link element must go inside the ___ section of an HTML document or page.",
-        answers: {
-            choice1: "Footer", 
-            choice2: "Paragraph", 
-            choice3: "Head", 
-            choice4: "Body",
-            correctAnswer: "3"
-        },
+        choice1: "Footer", 
+        choice2: "Paragraph", 
+        choice3: "Head", 
+        choice4: "Body",
+        correctAnswer: "3"
     },
     { 
         question: "What is a JavaScript element that represents either TRUE or FALSE values?",
-        answers: {
-            choice1: "Event", 
-            choice2: "Boolean", 
-            choice3: "RegExp", 
-            choice4: "Condition",
-            correctAnswer: "2"
-        },
-    },
-    { 
-        question: "External stylesheets are stored in what type of files?",
-        answers: {
-            choice1: "CSS", 
-            choice2: "PHP", 
-            choice3: "HTML", 
-            choice4: "XML",
-            correctAnswer: "1"
-        },
+        choice1: "Event", 
+        choice2: "Boolean", 
+        choice3: "RegExp", 
+        choice4: "Condition",
+        correctAnswer: "2"
     }
 ];
 
+// function answerCheck()
+
+
 // START QUIZ
-var contentElement = document.getElementById('q-content');
+// var contentElement = document.getElementById('Qcontent');
 var startBtn = document.getElementById('start'); // == var starQuiz = document.getElementById("start");
 console.log(startBtn)
 startBtn.addEventListener('click', startQuiz);
-
-function startQuestions() {
-    console.log("quiz starts")
-    if (questionIndex === codeQuestions.length) {
-        console.log ("quiz over")
-        // quizOver();
-    }
-    
-    
-}
-
 
 function startQuiz() {
     // contentElement.classList.add("hide")
@@ -88,7 +64,7 @@ function startQuiz() {
 }
 var timeLeftEl = document.getElementById("timeleft")
 function startTimer() {
-    var timeLeft = 3;
+    var timeLeft = 10;
     var timeInterval = setInterval(function() {
         if (timeLeft !== 0) {
             timeLeft--;
@@ -111,8 +87,30 @@ function startTimer() {
     }, 1000);
 }
 
+var codeQuestions = document.getElementById("quiz");
+var questionIndex = 0;
+var choiceBtn1 = document.getElementById("1")
+var choiceBtn2 = document.getElementById("2")
+var choiceBtn3 = document.getElementById("3")
+var choiceBtn4 = document.getElementById("4")
 
-// var codeQuestions = document.getElementById("quiz");
+
+function startQuestions() {
+    console.log("quiz starts")
+    // if (questionIndex === questionsArray.length) {
+    //     console.log ("quiz over")
+    //     // quizOver();
+    // }
+    var currentQuestion = questionsArray[questionIndex]
+    codeQuestions.innerHTML = currentQuestion.question;
+    choiceBtn1.innerHTML = currentQuestion.choice1;
+    choiceBtn2.innerHTML = currentQuestion.choice2;
+    choiceBtn3.innerHTML = currentQuestion.choice3;
+    choiceBtn4.innerHTML = currentQuestion.choice4;
+    console.log("buttons") 
+}
+
+
 // function startQuestions() {
 //     console.log("questions")
 // }
@@ -120,7 +118,7 @@ function startTimer() {
 
 //SCORE
 // var score = 0;
-// for (var i = 0; i < codeQuestions.length; i++) {
+// for (var i = 0; i < questionsArray.length; i++) {
 //     var answer = 
 // }
 
