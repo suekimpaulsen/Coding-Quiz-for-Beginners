@@ -114,20 +114,36 @@ function quizOver() {
     console.log(timeLeft)
 }
 
-// var submitScore = document.getElementById("submit");
-// function ()
-// LOCAL STORAGE
-// var userInitial = document.querySelector("#initials").value;
-// if (userInitial === '') {
-//     displayMessage('eror', 'please enter your initials');
-// }
-// localStorage.setItem('initial', userInitial);
-// localStorage.setItem('score', score);
-// introElement.setAttribute("hidden", "true");
-// contentElement.setAttribute("hidden", "true");
-// resultElement.setAttribute("hidden", "true");
-// scoreElement.removeAttribute("hidden", "true");
+var submitScore = document.getElementById("submit");
+submitScore.addEventListener('click', submitName);
 
+function submitName() {
+    // introElement.setAttribute("hidden", "true");
+    // contentElement.setAttribute("hidden", "true");
+    // resultElement.setAttribute("hidden", "true");
+    scoreElement.removeAttribute("hidden", "true");
+    localStorage.setItem('initial', userInitial);
+    localStorage.setItem('score', timeLeft);
+    var userInitial = document.getElementById("initials").value;
+    if (userInitial === '') {
+        alert('please enter your initials');
+    }
+    renderHighScore();
+    console.log(userInitial);
+    console.log(timeLeft);
+}
+var userInitialSpan = document.querySelector('#user-initial');
+var userScoreSpan = document.querySelector('#user-score');
+function renderHighScore() {
+    var userInitial = localStorage.getItem('initial');
+    var timeLeft = localStorage.getItem('score');
+    if (userInitial === null) {
+        return;
+    }
+    userInitialSpan.textContent = userInitial;
+    userScoreSpan.textContent = timeLeft;
+}
+// LOCAL STORAGE
 
 
 // END QUIZ
