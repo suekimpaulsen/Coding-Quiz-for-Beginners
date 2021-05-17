@@ -1,4 +1,4 @@
-// quiz Questions
+// array of quiz questions
 var questionsArray = [
     { 
         question: "The link element must go inside the ___ section of an HTML document or page.",
@@ -127,7 +127,6 @@ submitScore.addEventListener('click', submitName);
 
 // submit and save user initials and score
 function submitName() {
-    resultElement.setAttribute("hidden", "true");
     scoreElement.removeAttribute("hidden", "true");
     var userInitial = document.getElementById("initials").value;
     localStorage.setItem('initial', userInitial);
