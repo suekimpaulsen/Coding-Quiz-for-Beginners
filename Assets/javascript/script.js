@@ -1,3 +1,4 @@
+// quiz Questions
 var questionsArray = [
     { 
         question: "The link element must go inside the ___ section of an HTML document or page.",
@@ -41,22 +42,40 @@ var questionsArray = [
     }
 ];
 
-// START QUIZ
 var contentElement = document.getElementById('Qcontent');
 var resultElement = document.getElementById('results');
 var scoreElement = document.getElementById('highscore');
 var introElement = document.getElementById('intro')
+
+var codeQuestions = document.getElementById("quiz");
+var choiceBtn1 = document.getElementById("choice1")
+var choiceBtn2 = document.getElementById("choice2")
+var choiceBtn3 = document.getElementById("choice3")
+var choiceBtn4 = document.getElementById("choice4")
+var timeLeftEl = document.getElementById("timeleft")
+
 var startBtn = document.getElementById('start');
+var submitScore = document.getElementById("submit");
+var clearScore = document.getElementById("clearscore");
+
+var userInitialSpan = document.querySelector('#user-initial');
+var userScoreSpan = document.querySelector('#user-score');
+var questionIndex = 0;
+var timeLeft = 75;
+
+
+// clickable button to start the quiz
 startBtn.addEventListener('click', startQuiz);
 
+// a timer starts. present questions
 function startQuiz() {
     introElement.setAttribute("hidden", "true");
     contentElement.removeAttribute("hidden", "true");
     startTimer();
     startQuestions();
 }
-var timeLeftEl = document.getElementById("timeleft")
-var timeLeft = 75;
+
+// time decreses by 1 sec. stops when time left reaches 1 or all questions are answered
 function startTimer() {
     var timeInterval = setInterval(function() {
         if ((timeLeft === 0) || (questionIndex === questionsArray.length)) {
@@ -70,13 +89,7 @@ function startTimer() {
     }, 1000);
 }
 
-var codeQuestions = document.getElementById("quiz");
-var questionIndex = 0;
-var choiceBtn1 = document.getElementById("choice1")
-var choiceBtn2 = document.getElementById("choice2")
-var choiceBtn3 = document.getElementById("choice3")
-var choiceBtn4 = document.getElementById("choice4")
-
+// present the questions one by one until all Qs are answered
 function startQuestions() {
     if (questionIndex === questionsArray.length) {
         quizOver();
@@ -90,6 +103,8 @@ function startQuestions() {
         choiceBtn4.innerHTML = currentQuestion.choice4;
     }
 }
+
+// check if user inputs are same as correct answers from questions array. If it was incorrect, time is subtracted from the clock
 function answerCheck(userAnswer) {
     if (userAnswer === questionsArray[questionIndex].correctAnswer) {
     }
@@ -99,15 +114,18 @@ function answerCheck(userAnswer) {
     questionIndex++;
     startQuestions();
 }
+
+// when the quiz is over, present with the initial input method with the submit button
 function quizOver() {
     resultElement.removeAttribute("hidden", "true");
     contentElement.setAttribute("hidden", "true");
     timeLeftEl.innerHTML = 'Time Left: ' + timeLeft;
 }
 
-var submitScore = document.getElementById("submit");
+// clickable button to submit user initials and score
 submitScore.addEventListener('click', submitName);
 
+// submit and save user initials and score
 function submitName() {
     resultElement.setAttribute("hidden", "true");
     scoreElement.removeAttribute("hidden", "true");
@@ -119,9 +137,6 @@ function submitName() {
     }
     renderHighScore();
 }
-
-var userInitialSpan = document.querySelector('#user-initial');
-var userScoreSpan = document.querySelector('#user-score');
 function renderHighScore() {
     var userInitial = window.localStorage.getItem('initial');
     var timeLeft = localStorage.getItem('score');
@@ -129,7 +144,8 @@ function renderHighScore() {
     userInitialSpan.textContent = userInitial;
     userScoreSpan.textContent = timeLeft;
 }
-var clearScore = document.getElementById("clearscore");
+
+// clear saved initials and score when clear high scores button is clicked
 clearScore.addEventListener('click', clearStorage);
 function clearStorage() {
     localStorage.clear();
