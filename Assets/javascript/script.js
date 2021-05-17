@@ -47,13 +47,11 @@ var resultElement = document.getElementById('results');
 var scoreElement = document.getElementById('highscore');
 var introElement = document.getElementById('intro')
 var startBtn = document.getElementById('start');
-console.log(startBtn)
 startBtn.addEventListener('click', startQuiz);
 
 function startQuiz() {
     introElement.setAttribute("hidden", "true");
     contentElement.removeAttribute("hidden", "true");
-    console.log("the game has started")
     startTimer();
     startQuestions();
 }
@@ -63,7 +61,6 @@ function startTimer() {
     var timeInterval = setInterval(function() {
         if ((timeLeft === 0) || (questionIndex === questionsArray.length)) {
             clearInterval(timeInterval);
-            console.log("game over")
             quizOver();
         }
         else {
@@ -81,7 +78,6 @@ var choiceBtn3 = document.getElementById("choice3")
 var choiceBtn4 = document.getElementById("choice4")
 
 function startQuestions() {
-    console.log("quiz starts")
     if (questionIndex === questionsArray.length) {
         quizOver();
     }
@@ -95,13 +91,10 @@ function startQuestions() {
     }
 }
 function answerCheck(userAnswer) {
-    console.log(userAnswer)
-    console.log(questionsArray[questionIndex].correctAnswer)
     if (userAnswer === questionsArray[questionIndex].correctAnswer) {
     }
     else {
         timeLeft -= 10;
-        console.log(timeLeft);
     }
     questionIndex++;
     startQuestions();
@@ -110,16 +103,12 @@ function quizOver() {
     resultElement.removeAttribute("hidden", "true");
     contentElement.setAttribute("hidden", "true");
     timeLeftEl.innerHTML = 'Time Left: ' + timeLeft;
-
-    console.log(timeLeft)
 }
 
 var submitScore = document.getElementById("submit");
 submitScore.addEventListener('click', submitName);
 
 function submitName() {
-    // introElement.setAttribute("hidden", "true");
-    // contentElement.setAttribute("hidden", "true");
     resultElement.setAttribute("hidden", "true");
     scoreElement.removeAttribute("hidden", "true");
     var userInitial = document.getElementById("initials").value;
@@ -129,20 +118,16 @@ function submitName() {
         alert('please enter your initials');
     }
     renderHighScore();
-    console.log(userInitial);
-    console.log(timeLeft);
 }
+
 var userInitialSpan = document.querySelector('#user-initial');
 var userScoreSpan = document.querySelector('#user-score');
 function renderHighScore() {
     var userInitial = window.localStorage.getItem('initial');
     var timeLeft = localStorage.getItem('score');
-    // if (userInitial === null) {
-    //     return;
-    // }
+
     userInitialSpan.textContent = userInitial;
     userScoreSpan.textContent = timeLeft;
-    console.log(localStorage)
 }
 var clearScore = document.getElementById("clearscore");
 clearScore.addEventListener('click', clearStorage);
@@ -150,48 +135,4 @@ function clearStorage() {
     localStorage.clear();
     userInitialSpan.textContent = "";
     userScoreSpan.textContent = "";
-    console.log(localStorage)
 }
-var goBack = document.getElementById("goback");
-goBack.addEventListener('click', firstPage)
-function firstPage() {
-    introElement.removeAttribute("hidden", "true");
-}
-
-
-
-
-// LOCAL STORAGE
-
-
-// END QUIZ
-
-// NAME
-
-// VIEW HIGH SCORES
-
-// SCORES - GO BACK
-// SCORES - CLEAR HIGH SCORES
-
-
-// BUTTONS
-// - start quiz
-// - multiple choice options 
-// - submit 
-// - go back 
-// - clear high scores 
-
-
-// TIMER
-// var timer = document.getElementById('countdown');
-// function countdown() {
-//     var timeLeft = 75;
-//     var timeInterval = setInterval(function) {
-            //TIMER CODE
-            // if Finishes the Quiz. timer stops
-            // if timer reaches 0, finishes the quiz
-//     }, 1000);
-// }
-
-
-
