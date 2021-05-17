@@ -120,11 +120,11 @@ submitScore.addEventListener('click', submitName);
 function submitName() {
     // introElement.setAttribute("hidden", "true");
     // contentElement.setAttribute("hidden", "true");
-    // resultElement.setAttribute("hidden", "true");
+    resultElement.setAttribute("hidden", "true");
     scoreElement.removeAttribute("hidden", "true");
+    var userInitial = document.getElementById("initials").value;
     localStorage.setItem('initial', userInitial);
     localStorage.setItem('score', timeLeft);
-    var userInitial = document.getElementById("initials").value;
     if (userInitial === '') {
         alert('please enter your initials');
     }
@@ -135,14 +135,32 @@ function submitName() {
 var userInitialSpan = document.querySelector('#user-initial');
 var userScoreSpan = document.querySelector('#user-score');
 function renderHighScore() {
-    var userInitial = localStorage.getItem('initial');
+    var userInitial = window.localStorage.getItem('initial');
     var timeLeft = localStorage.getItem('score');
-    if (userInitial === null) {
-        return;
-    }
+    // if (userInitial === null) {
+    //     return;
+    // }
     userInitialSpan.textContent = userInitial;
     userScoreSpan.textContent = timeLeft;
+    console.log(localStorage)
 }
+var clearScore = document.getElementById("clearscore");
+clearScore.addEventListener('click', clearStorage);
+function clearStorage() {
+    localStorage.clear();
+    userInitialSpan.textContent = "";
+    userScoreSpan.textContent = "";
+    console.log(localStorage)
+}
+var goBack = document.getElementById("goback");
+goBack.addEventListener('click', firstPage)
+function firstPage() {
+    introElement.removeAttribute("hidden", "true");
+}
+
+
+
+
 // LOCAL STORAGE
 
 
